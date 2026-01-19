@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css?family=Questrial&display=swap");
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #2a7d9b;
+  background: linear-gradient(
+    307deg,
+    rgb(44, 173, 220) 15%,
+    rgba(87, 199, 164, 1) 50%,
+    rgb(245, 252, 255) 100%
+  );
+  font-family: "Questrial", sans-serif;
+  cursor: none;
+
+}
+
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  color: #2443a9;
+}
+
+.main-page {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.nav-main,
+.contet-page {
+  z-index: 10;
+  position: relative;
+}
+
+.nav-main {
+  font-size: calc(20vmax * 9 / 16);
+  overflow-x: hidden;
+  padding-top: 300px;
+  padding-bottom: 300px;
+}
+
+.nav-list__item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.nav-list__item:hover {
+  opacity: 0.4;
+}
+
+.item__translate {
+  left: -10%;
+  position: relative;
+}
+
+.nav-list__item .item__container {
+  position: relative;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  transform: translate3d(0, 100%, 0);
+}
+
+.nav-list__item:nth-child(1) .item__container {
+  transition-delay: 0.5s;
+}
+
+.nav-list__item:nth-child(2) .item__container {
+  transition-delay: 0.7s;
+}
+
+.nav-list__item:nth-child(3) .item__container {
+  transition-delay: 0.9s;
+}
+
+.nav-list__item:nth-child(4) .item__container {
+  transition-delay: 1.1s;
+}
+
+.item__translate.is-inview .item__container {
+  transform: translate3d(0, 0, 0);
+}
+
+.text-description {
+  position: relative;
+}
+
+.nav-list__item .item__container::before,
+.text-description::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 50%;
+  height: 10px;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  background-color: rgba(0, 0, 0, 1);
+}
+.item__container span {
+  color: #002ec3;
+}
+.text-description::before {
+  height: 5px;
+  transform: scaleX(0);
+  top: calc(50% - 5px);
+  left: 0;
+  transform-origin: 0% 50%;
+}
+
+.nav-list__item .item__container:hover::before,
+.text-description:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-list__item,
+.text-description {
+  cursor: ew-resize;
+}
+
+.list-main {
+  font-size: calc(8vmax * 9 / 16);
+  padding-bottom: 70px;
+}
+
+.blur-effect {
+  filter: blur(50px);
+  transition: filter 0.7s;
+}
+
+.blur-effect.is-inview {
+  filter: blur(0px);
+}
+
+.list-description {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+}
+
+.nav-main,
+.list-main,
+.list-description {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.number-description {
+  padding-right: 5px;
+  font-size: 0.6rem;
+}
+
+.text-content-page {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.2rem;
+}
+
+.text-content-page p {
+  position: relative;
+  color: #1a2a6c;
+  margin: 50px auto;
+  font-size: 18px;
+  line-height: 1.9;
+  text-align: center;
+  font-family: "Pretendard-Regular", sans-serif;
+  font-weight: 400;
+  max-width: 800px;
+  padding: 30px 35px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+/* ✨ 반짝이는 배경 패턴 효과 */
+.text-content-page p::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 20%,
+    transparent 70%
+  );
+  animation: glow 8s linear infinite;
+  z-index: 0;
+}
+
+#bold {
+  position: relative;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(90deg, #06299f, #234bcd, #00aaff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  display: inline;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+
+@keyframes glowText {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(0, 170, 255, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px rgba(0, 170, 255, 0.9));
+  }
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .list-description {
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+  }
+}
+
+.nav-wrapper {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cursor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.cursor-nav span {
+  color: #37ff30e6;
+}
+
+.link {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.link span {
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  font-size: 36px;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .cursor-nav {
+    flex-direction: column;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+  backdrop-filter: blur(5px);
+}
+
+.custom-cursor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: #37ff30e6;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
