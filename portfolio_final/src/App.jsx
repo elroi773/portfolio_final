@@ -3,6 +3,8 @@ import Index from "./pages/Index";
 import Intro from "./pages/Intro";
 import Skills from "./pages/Skills"
 import Profile from "./pages/Profile"
+import Contact from "./pages/Contact";
+
 function App() {
   return (
     <Routes>
@@ -20,6 +22,7 @@ function App() {
       <Route path="*" element={<Navigate to="/index" replace />} />
 
       <Route path="/skills" element={<Skills />}/>
+      <Route path="/contact" element={<Contact />}/>
     </Routes>
   );
 }
